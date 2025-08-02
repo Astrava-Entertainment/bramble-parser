@@ -1,6 +1,14 @@
 {
   "name": "@astrava/bramble-parser",
   "version": "0.4.3",
+  "description": "Bramble is a lightweight recursive descent parser that processes .havenfs files, returning a structured Json tree that can be used to construct an in-memory FS representation. The parser is based on line-based grammar, chunk headers, and metadata declarations.",
+  "keywords": ["haven", "parser", "custom-grammar", "tokenizer", "structured-data"],
+  "license": "EUPL",
+  "author": "Astrava Entertainment <astrava.games> (https://astrava.games)",
+  "repository": {
+     "type": "git",
+     "url": "https://github.com/Astrava-Entertainment/bramble-parser"
+  },
   "type": "module",
   "public": true,
   "exports": {
@@ -10,10 +18,13 @@
     "bramble": "bun ./cli.ts",
     "example": "bun ./cli.ts",
     "test": "bun test",
-    "lex": "bun src/lexer"
+    "lex": "bun src/lexer",
+    "build": "bunx tsc --project tsconfig.json"
   },
   "dependencies": {
-    "fs": "^0.0.1-security",
+    "fs": "^0.0.1-security"
+  },
+  "devDependencies": {
     "@types/node": "^24.0.12"
   }
 }

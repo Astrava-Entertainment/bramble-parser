@@ -1,5 +1,4 @@
 {
-  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
@@ -9,16 +8,14 @@
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "paths": {
-      "~/*": [
-        "*"
-      ]
-    },
+      "~/*": ["src/*"]
+    }
   },
   "include": [
     "src/**/*.ts",
     "types/**/*.d.ts",
-    "test/**/*.ts"
+    // "test/**/*.ts"
   ]
 }
