@@ -1,8 +1,8 @@
-# Bramble Haven Parser
-> A lexer and parser for the Haven file format
+# Bramble Parser
+> A parser for the .havenfs file format
 
 ## Introduction
-Bramble is a lightweight recursive descent parser that processes .havenfs flat files from Haven and returns a structured in-memory FS representation. The parser is based on line-based grammar, chunk headers, and metadata declarations.
+Bramble is a lightweight recursive descent parser that processes .havenfs files, returning a structured Json tree that can be used to construct an in-memory FS representation. The parser is based on line-based grammar, chunk headers, and metadata declarations.
 
 
 .havenfs files describe the structure of a virtual file system with elements such as files, metadata, directories, references, and git history.

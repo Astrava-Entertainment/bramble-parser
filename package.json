@@ -1,5 +1,5 @@
 {
-  "name": "@astrava/bramble-parser",
+  "name": "bramble-parser",
   "version": "0.4.3",
   "description": "Bramble is a lightweight recursive descent parser that processes .havenfs files, returning a structured Json tree that can be used to construct an in-memory FS representation. The parser is based on line-based grammar, chunk headers, and metadata declarations.",
   "keywords": ["haven", "parser", "custom-grammar", "tokenizer", "structured-data"],
