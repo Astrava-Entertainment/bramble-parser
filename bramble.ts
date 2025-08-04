@@ -20,11 +20,13 @@ async function main() {
 
         const lexer = new BrambleLexer({document: filePath});
         lexer.run();
+        // lexer.debugChunks();
 
         const chunkMap = lexer.getChunkMap();
         const parser = new BrambleFSParser(chunkMap);
         parser.run();
-        parser.debugFS();
+        parser.debugLibraries();
+        // parser.debugFS();
 
         const errors = errorManager.getAll();
         if (errors.length > 0) {

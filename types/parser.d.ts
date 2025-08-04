@@ -13,6 +13,12 @@ declare global {
     history?: HavenHistoryTree[];
   }
 
+  export interface HavenLibrarie {
+    id: string;          // Lib id, e.g., "l3000"
+    name: string;        // Lib name, e.g., "info"
+    tagId: string;       // Tag id, e.g., "t4000"
+  }
+
   export interface HavenTag {
     name: string;         // Tag name, e.g., "references"
     color: string;        // Hex color code, e.g., "#3498DB"

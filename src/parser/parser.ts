@@ -5,16 +5,19 @@ import { DirectoryParser } from './directoryParser';
 import { ReferenceParser } from './referenceParser';
 import { HistoryParser } from './historyParser';
 import { errorManager } from '~/errors/errorManager';
+import { LibrarieParser } from './libParser';
 
 export class BrambleFSParser {
   private chunkMap: ChunkMap[];
   private nodes: HavenFSNode[];
+  private libraries: Map<string, HavenLibrarie[]>;
   private references: HavenReference[];
   private history: HavenHistoryTree[];
 
   constructor(chunkMap: ChunkMap[]) {
     this.chunkMap = chunkMap;
     this.nodes = [];
+    this.libraries = new Map<string, HavenLibrarie[]>();
     this.references = [];
     this.history = [];
   }
@@ -24,6 +27,14 @@ export class BrambleFSParser {
       switch (chunk.type) {
         case 'files':
           new FileParser(this.nodes, chunk.entries);
+          break;
+
+        case 'libraries':
+          new LibrarieParser(this.libraries, this.nodes, chunk.entries);
+          break;
+
+        case 'tagmap':
+          console.log('tagmap');
           break;
 
         case 'directories':
@@ -37,6 +48,7 @@ export class BrambleFSParser {
         case 'history':
           new HistoryParser(this.history, chunk.entries);
           break;
+
 
         default:
           const position = { line: 0, column: 0 };
@@ -93,6 +105,20 @@ export class BrambleFSParser {
   public run() {
     this.parse();
     this.linkData();
+  }
+
+  public debugLibraries(): void {
+    console.log('='.repeat(60));
+    console.log(`Total Libraries: ${this.libraries.size}`);
+    console.log('='.repeat(60));
+
+    for (const [libId, entries] of this.libraries) {
+      console.log(`Library ID: ${libId}`);
+      for (const entry of entries) {
+        console.log(`  - name: ${entry.name}, tagId: ${entry.tagId}`);
+      }
+      console.log('-'.repeat(40));
+    }
   }
 
   public debugFS(): void {

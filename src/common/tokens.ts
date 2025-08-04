@@ -6,13 +6,18 @@ export enum ELexerTokens {
   DOTS,             // :
   COMMA,            // ,
 
+  KW_BRANCH,        // BRANCH
   KW_CHUNK,         // CHUNK
   KW_FILE,          // FILE
   KW_META,          // META
+  KW_LIB,           // LIB
+  KW_TAG,           // TAG
   KW_DIR,           // DIR
   KW_REF,           // REF
   KW_HIST,          // HIST
 
+  ATT_BASE,         // base
+  ATT_HEAD,         // head
   ATT_PARENT,       // parent
   ATT_NAME,         // name
   ATT_SIZE,         // size

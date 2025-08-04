@@ -1,50 +1,67 @@
-#CHUNK files 0-999 @0
-FILE f1a7e parent=92e1f name=logo.png size=20320 tags=branding:#FF5733,logo:#C70039
-META f1a7e modified=20240813T1419 created=20240813T1419 mimetype=image/png
+#BRANCH base=main parent=b0011 head=b0012
 
-FILE f1b88 parent=92e1f name=screenshot1.png size=50320 tags=references:#3498DB
-META f1b88 modified=20240812T1418 created=20240812T1418 mimetype=image/png
+#CHUNK files 2000-2999 @2000
+FILE f3001 parent=94a1f name=layout-grid.ai size=402310 tags=b500,b501 libs=a301
+META f3001 lock=u9012 last-fetch=20250801T0900 modified=20250801T0830 created=20250801T0800 mimetype=application/illustrator
 
-FILE f1c99 parent=92e2f name=favicon.ico size=2048 tags=references:#3498DB
-META f1c99 modified=1723472401 created=1723472390 mimetype=image/x-icon
+FILE f3002 parent=94a1f name=logo.png size=75213 tags=b502
+META f3002 last-fetch=20250801T0900 modified=20250731T1730 created=20250731T1600 mimetype=image/png
 
-FILE f1d01 parent=92e3f name=readme.md size=1234 tags=info:#9B59B6,relevant:#2ECC71
-META f1d01 modified=1723472481 created=1723472400 mimetype=text/markdown
+FILE f3003 parent=94a2f name=button.svg size=1312 tags=b503
+META f3003 last-fetch=20250801T0900 modified=1723659200 created=1723659100 mimetype=image/svg+xml
 
-FILE f1d02 parent=92e3f name=changelog.md size=1532 tags=info:#9B59B6,relevant:#2ECC71
-META f1d02 modified=1723472499 created=1723472450 mimetype=text/markdown
+FILE f3004 parent=94a3f name=user-manual.pdf size=589000 tags=b504,b505
+META f3004 lock=u9013 last-fetch=20250801T0900 modified=1723659300 created=1723659200 mimetype=application/pdf
 
-FILE f1d03 parent=92e4f name=api-spec.yaml size=3321
-META f1d03 modified=1723472501 created=1723472460 mimetype=application/x-yaml
+FILE f3005 parent=94a4f name=settings.env size=315 tags=b506
+META f3005 last-fetch=20250801T0900 modified=1723659400 created=1723659350 mimetype=text/plain
 
-FILE f1e01 parent=92e5f name=demo.mp4 size=15032103 tags=info:#9B59B6,relevant:#2ECC71,video:#F39C12
-META f1e01 modified=1723472551 created=1723472500 mimetype=video/mp4
+FILE f3006 parent=94a5f name=utils.js size=1440 tags=b507
+META f3006 lock=u9012 last-fetch=20250801T0900 modified=1723659500 created=1723659450 mimetype=application/javascript
 
-FILE f1f01 parent=92e6f name=build.sh size=923
-META f1f01 modified=1723472600 created=1723472590 mimetype=application/x-sh
+#CHUNK libraries @3000
+LIB a300 info=b400,b401
+LIB a301 info=b500,b501
 
-FILE f1f02 parent=92e7f name=upload.ts size=1430
-META f1f02 modified=1723472650 created=1723472620 mimetype=application/typescript
+#CHUNK tagmap @4000
+TAG b400 design:#8E44AD RF=f2001
+TAG b401 sketch:#1ABC9C RF=f2001
+TAG b402 branding:#FF5733 RF=f2002
+TAG b403 icons:#2980B9 RF=f2003
+TAG b404 docs:#2ECC71 RF=f2004
+TAG b405 info:#9B59B6 RF=f2004
+TAG b406 config:#34495E RF=f2005
+TAG b407 script:#F1C40F RF=f2006
+TAG b500 grid:#D35400 RF=f3001
+TAG b501 layout:#5DADE2 RF=f3001
+TAG b502 logo:#E74C3C RF=f3002
+TAG b503 button:#1F618D RF=f3003
+TAG b504 manual:#27AE60 RF=f3004
+TAG b505 help:#9C59B6 RF=f3004
+TAG b506 env:#2C3E50 RF=f3005
+TAG b507 utility:#F39C12 RF=f3006
 
-FILE 3d931 parent=92e3f name=project.md size=2453
-META 3d931 modified=1723472700 created=1723472680 mimetype=text/markdown
+#CHUNK directories @21000
+DIR 93a1f parent=root name=assets
+DIR 93a2f parent=93a1f name=icons
+DIR 93a3f parent=root name=manuals
+DIR 93a4f parent=root name=config
+DIR 93a5f parent=root name=scripts
 
-FILE 3d932 parent=92e3f name=project_beta.md size=2453
-META 3d932 modified=1723472700 created=1723472680 mimetype=text/markdown
+DIR 94a1f parent=root name=graphics
+DIR 94a2f parent=94a1f name=components
+DIR 94a3f parent=root name=docs
+DIR 94a4f parent=root name=settings
+DIR 94a5f parent=root name=utilities
 
-#CHUNK directories @20000
-DIR 92e1f parent=root name=images
-DIR 92e2f parent=92e1f name=icons
-DIR 92e3f parent=root name=docs
-DIR 92e4f parent=92e3f name=specs
-DIR 92e5f parent=root name=videos
-DIR 92e6f parent=root name=scripts
-DIR 92e7f parent=92e6f name=deploy
+#CHUNK refs @28000
+REF f3002 to=f3001 type=derived-from context=logo-extraction
+REF f3004 to=7e891 type=used-by context=training-material
+REF f3006 to=f3003 type=depends-on context=button-behavior
 
-#CHUNK refs @27000
-REF f1a7e to=3d931 type=used-by context=thumbnail
-REF f1a7e to=3d932 type=used-by context=thumbnail
+#CHUNK history f3002
+HIST f3002 20250730T0930 user=laura action=created hash=abc999 workflow=pipelineZ:stageX parent=XYZ999
+HIST f3002 20250731T1600 user=laura action=updated hash=abc123 workflow=pipelineZ:stageX x-parent=XYZ999
 
-#CHUNK history f1a7e
-HIST f1a7e 20250625T1230 user=ellie action=created hash=abc123
-HIST f1a7e 20250626T1010 user=ellie action=edited hash=def456
+#CHUNK history f3006
+HIST f3006 20250729T1015 user=omar action=created hash=def456 workflow=utilbuild:init parent=null
