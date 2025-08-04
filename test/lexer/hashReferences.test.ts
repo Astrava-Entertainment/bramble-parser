@@ -20,7 +20,7 @@ META f1a7e modified=1723472381 created=1723472370 mimetype=image/png
 
     vi.spyOn(fs, 'readFileSync').mockReturnValue(fakeContent);
 
-    const lexer = new BrambleLexer('./test/test.example1.havenfs');
+    const lexer = new BrambleLexer('./test/test.example.havenfs');
     lexer.tokenize();
     lexer.groupTokensByLine();
     lexer.groupByChunkContext();
@@ -39,7 +39,7 @@ META xx999 modified=1723472381 created=1723472370 mimetype=image/png
 
     vi.spyOn(fs, 'readFileSync').mockReturnValue(fakeContent);
 
-    const lexer = new BrambleLexer('./test/test.example1.havenfs');
+    const lexer = new BrambleLexer('./test/test.example.havenfs');
     lexer.tokenize();
     lexer.groupTokensByLine();
     lexer.groupByChunkContext();
@@ -59,7 +59,7 @@ FILE f1a7e parent=92e1f name=logo.png
 
     vi.spyOn(fs, 'readFileSync').mockReturnValue(fakeContent);
 
-    const lexer = new BrambleLexer('./test/test.example1.havenfs');
+    const lexer = new BrambleLexer('./test/test.example.havenfs');
     lexer.tokenize();
     lexer.groupTokensByLine();
     lexer.groupByChunkContext();
@@ -79,7 +79,7 @@ HIST f1a7e 20250625T1230 user=ellie action=created hash=abc123
 
     vi.spyOn(fs, 'readFileSync').mockReturnValue(fakeContent);
 
-    const lexer = new BrambleLexer('./test/test.example1.havenfs');
+    const lexer = new BrambleLexer('./test/test.example.havenfs');
     lexer.tokenize();
     lexer.groupTokensByLine();
     lexer.groupByChunkContext();
@@ -110,7 +110,7 @@ HIST xxxxxx 20250625T1230 user=ellie action=created hash=abc123
 
     vi.spyOn(fs, 'readFileSync').mockReturnValue(fakeContent);
 
-    const lexer = new BrambleLexer('./test/test.example1.havenfs');
+    const lexer = new BrambleLexer('./test/test.example.havenfs');
     lexer.tokenize();
     lexer.groupTokensByLine();
     lexer.groupByChunkContext();

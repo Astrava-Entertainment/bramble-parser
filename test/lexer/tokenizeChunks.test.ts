@@ -18,7 +18,7 @@ describe('Tokenisation of Chunk Headers', () => {
   });
 
   test('Correctly tokenises a valid chunk', () => {
-    const lexer = new BrambleLexer({document: fixture('test.example1.havenfs')});
+    const lexer = new BrambleLexer({document: fixture('test.example.havenfs')});
     lexer.tokenize();
 
     const filteredTokens = lexer.tokens.filter(t => t.type !== ELexerTokens.WHITESPACE);
@@ -42,7 +42,7 @@ describe('Tokenisation of Chunk Headers', () => {
 
     vi.spyOn(fs, 'readFileSync').mockReturnValue(fakeContent);
 
-    const lexer = new BrambleLexer(fixture('test.example1.havenfs'));
+    const lexer = new BrambleLexer(fixture('test.example.havenfs'));
     lexer.tokenize();
 
     const errors = errorManager.getAll();

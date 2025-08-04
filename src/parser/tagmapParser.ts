@@ -19,19 +19,33 @@ export class TagmapParser extends BaseParser {
       const position = this.getPosition(first);
 
       const idToken = this.getToken(line, ELexerTokens.ID);
+      const idTokenIndex = this.getTokenIndex(line, ELexerTokens.ID);
       const tagToken = this.getToken(line, ELexerTokens.STRING);
       const colorToken = this.getToken(line, ELexerTokens.ATT_COLOR);
       const refTokenIndex = this.getTokenIndex(line, ELexerTokens.KW_FR);
 
-      if (!idToken || !tagToken || !colorToken || !refTokenIndex) {
+      if (!idToken || !tagToken || !refTokenIndex) {
+        new HavenException('Missing mandatory fields in TAG', position, ErrorCode.MISSING_TOKEN);
+        continue;
+      }
+
+      const isInvalidToken = line[idTokenIndex - 1].type;
+      if (isInvalidToken == ELexerTokens.OPERATOR) {
         new HavenException('Missing mandatory fields in TAG', position, ErrorCode.MISSING_TOKEN);
         continue;
       }
 
       const idValue = idToken.value;
       const tagName = tagToken.value;
-      const hexColor = colorToken.value;
-      const fileRef = line[refTokenIndex + 2].value;
+      const hexColor = colorToken?.value ?? "#ffffff";
+      const fileRef = line[refTokenIndex + 2];
+
+      if (!fileRef) {
+        new HavenException('Missing file reference in TAG', position, ErrorCode.MISSING_TOKEN);
+        continue;
+      }
+
+      const fileRefValue = fileRef.value;
 
       const tag = {
         id: idValue,
@@ -39,7 +53,7 @@ export class TagmapParser extends BaseParser {
           name: tagName,
           color: hexColor,
         },
-        fileRef: fileRef
+        fileRef: fileRefValue
       }
 
       this.tagmap.push(tag)
