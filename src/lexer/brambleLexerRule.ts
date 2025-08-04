@@ -36,6 +36,7 @@ export const LexerRules: BrambleLexerRule[] = [
   new BrambleLexerRule(/^name\b/, ELexerTokens.ATT_NAME),
   new BrambleLexerRule(/^size\b/, ELexerTokens.ATT_SIZE),
   new BrambleLexerRule(/^tags\b/, ELexerTokens.ATT_TAGS),
+  new BrambleLexerRule(/^libs\b/, ELexerTokens.ATT_LIBS),
   new BrambleLexerRule(/^modified\b/, ELexerTokens.ATT_MODIFIED),     // ACTION
   new BrambleLexerRule(/^created\b/, ELexerTokens.ATT_CREATED),       // ACTION
   new BrambleLexerRule(/^updated\b/, ELexerTokens.ATT_UPDATE),        // ACTION

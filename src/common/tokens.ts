@@ -23,6 +23,7 @@ export enum ELexerTokens {
   ATT_NAME,         // name
   ATT_SIZE,         // size
   ATT_TAGS,         // tags
+  ATT_LIBS,         // libs
   ATT_MODIFIED,     // modified         // ACTION
   ATT_CREATED,      // created          // ACTION
   ATT_UPDATE,       // update           // ACTION

@@ -26,8 +26,8 @@ async function main() {
         const parser = new BrambleFSParser(chunkMap);
         parser.run();
         // parser.debugLibraries();
-        parser.debugTagmap();
-        // parser.debugFS();
+        // parser.debugTagmap();
+        parser.debugFS();
 
         const errors = errorManager.getAll();
         if (errors.length > 0) {

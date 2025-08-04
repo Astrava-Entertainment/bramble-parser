@@ -7,7 +7,8 @@ declare global {
     name: string;
     parent: string;
     size?: number;
-    tags?: HavenTag[];
+    tags?: string[];
+    libs?: string[];
     metadata?: Record<string, string>;
     references?: HavenReference[];
     history?: HavenHistoryTree[];
