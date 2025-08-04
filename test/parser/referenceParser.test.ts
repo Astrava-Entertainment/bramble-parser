@@ -30,7 +30,7 @@ describe('ReferenceParser integrated with Lexer', () => {
       parent: '92e1f',
     });
 
-    const lexer = new BrambleLexer({document: fixture('test.example1.havenfs')});
+    const lexer = new BrambleLexer({document: fixture('test.example.havenfs')});
     lexer.run();
 
     const chunkMap = lexer.getChunkMap();
@@ -57,7 +57,9 @@ describe('ReferenceParser integrated with Lexer', () => {
     lexer.run();
 
     const refChunk = lexer.getChunkMap().find(chunk => chunk.type === 'refs');
-    if (!refChunk) return;
+    if (!refChunk) {
+      throw new Error("Reference chunk not found");
+    }
 
     const references: HavenReference[] = [];
     const nodes: HavenFSNode[] = [];
@@ -73,7 +75,9 @@ describe('ReferenceParser integrated with Lexer', () => {
     lexer.run();
 
     const refChunk = lexer.getChunkMap().find(chunk => chunk.type === 'refs');
-    if (!refChunk) return;
+    if (!refChunk) {
+      throw new Error("Reference chunk not found");
+    }
 
     const references: HavenReference[] = [];
     const nodes: HavenFSNode[] = [];
@@ -93,7 +97,7 @@ describe('ReferenceParser integrated with Lexer', () => {
       parent: '92e1f',
     });
 
-    const lexer = new BrambleLexer({document: fixture('test.example1.havenfs')});
+    const lexer = new BrambleLexer({document: fixture('test.example.havenfs')});
     lexer.run();
 
     const chunkMap = lexer.getChunkMap();
@@ -116,7 +120,7 @@ describe('ReferenceParser integrated with Lexer', () => {
       parent: '92e1f',
     });
 
-    const lexer = new BrambleLexer({document: fixture('test.example1.havenfs')});
+    const lexer = new BrambleLexer({document: fixture('test.example.havenfs')});
     lexer.run();
 
     const chunkMap = lexer.getChunkMap();

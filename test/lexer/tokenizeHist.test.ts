@@ -13,7 +13,7 @@ describe('Tokenisation of HIST Headers', () => {
     const fakeContent = 'HIST f1a7e 20250625T1230 user=ellie action=created hash=abc123\n';
     vi.spyOn(fs, 'readFileSync').mockReturnValue(fakeContent);
 
-    const lexer = new BrambleLexer('./test/test.example1.havenfs');
+    const lexer = new BrambleLexer('./test/test.example.havenfs');
     lexer.tokenize();
 
     const filteredTokens = lexer.tokens.filter(t => t.type !== ELexerTokens.WHITESPACE);
@@ -55,7 +55,7 @@ describe('Tokenisation of HIST Headers', () => {
     const fakeContent = 'HIST f1a7e 20250625T1230\n';
     vi.spyOn(fs, 'readFileSync').mockReturnValue(fakeContent);
 
-    const lexer = new BrambleLexer('./test/test.example1.havenfs');
+    const lexer = new BrambleLexer('./test/test.example.havenfs');
     lexer.tokenize();
 
     const filteredTokens = lexer.tokens.filter(t => t.type !== ELexerTokens.WHITESPACE);
@@ -70,7 +70,7 @@ describe('Tokenisation of HIST Headers', () => {
     const fakeContent = 'HIST\n';
     vi.spyOn(fs, 'readFileSync').mockReturnValue(fakeContent);
 
-    const lexer = new BrambleLexer('./test/test.example1.havenfs');
+    const lexer = new BrambleLexer('./test/test.example.havenfs');
     lexer.tokenize();
 
     const filteredTokens = lexer.tokens.filter(t => t.type !== ELexerTokens.WHITESPACE);

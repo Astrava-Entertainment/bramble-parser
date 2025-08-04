@@ -35,6 +35,8 @@ export class HistoryParser extends BaseParser {
 
       if (!AllowedActions.includes(actionToken)) {
         const position = { line: line[actionIndex + 2].line, column: line[actionIndex + 2].start };
+        console.log(actionToken);
+
         new HavenException(`Invalid action: ${actionToken}`, position, ErrorCode.INVALID_HISTORY_ACTION);
         return;
       }

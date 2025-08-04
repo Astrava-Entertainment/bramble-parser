@@ -1,13 +1,21 @@
 #CHUNK files 0-999 @0
-FILE f1a7e parent=92e1f name=logo.png size=20320 tags=branding,logo
+FILE f1a7e parent=92e1f name=logo.png size=20320 tags=b400,b401
 META f1a7e modified=1723472381 created=1723472370 mimetype=image/png
 
 #CHUNK files 1000-1999 @12010
-FILE f1b88 parent=92e1f name=screenshot1.png size=50320
+FILE f1b88 parent=92e1f name=screenshot1.png size=50320 tags=b402 libs=a300
 META f1b88 modified=1723472381 created=1723472370 mimetype=image/png
 
 #CHUNK directories @25000
 DIR 92e1f parent=root name=images
+
+#CHUNK libraries @3000
+LIB a300 info=b400,b401
+
+#CHUNK tagmap @4000
+TAG b400 branding:#8E44AD FR=f1a7e
+TAG b401 logo FR=f1a7e
+TAG b402 favourite FR=f1b88
 
 #CHUNK refs @27000
 REF f1a7e to=3d93e type=used-by context=thumbnail

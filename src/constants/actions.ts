@@ -1,1 +1,1 @@
-export const AllowedActions = ['created', 'edited', 'deleted', 'restored'];
+export const AllowedActions = ['created', 'edited', 'updated', 'deleted', 'restored'];

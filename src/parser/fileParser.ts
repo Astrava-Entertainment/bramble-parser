@@ -37,6 +37,7 @@ export class FileParser extends BaseParser {
     const nameIndex = line.findIndex((t) => t.type === ELexerTokens.ATT_NAME);
     const sizeIndex = line.findIndex((t) => t.type === ELexerTokens.ATT_SIZE);
     const tagsIndex = line.findIndex((t) => t.type === ELexerTokens.ATT_TAGS);
+    const libsIndex = line.findIndex((t) => t.type === ELexerTokens.ATT_LIBS);
 
     if (!idToken || parentIndex === -1 || nameIndex === -1) {
       const position = { line: first?.line ?? 0, column: first?.start ?? 0 };
@@ -48,27 +49,29 @@ export class FileParser extends BaseParser {
     const nameToken = line[nameIndex + 2]?.value;
     const size = sizeIndex !== -1 ? parseInt(line[sizeIndex + 2]?.value, 10) : undefined;
 
-    let tags: HavenTag[] | undefined = undefined;
-
+    let tags: string[] = [];
     if (tagsIndex !== -1) {
       let i = tagsIndex + 2;
-      let tagParts: string[] = [];
 
-      while (i < line.length && !line[i].value.includes('=')) {
-        tagParts.push(line[i].value);
+      while (i < line.length && line[i].type !== ELexerTokens.WHITESPACE) {
+        if (line[i].type === ELexerTokens.ID) {
+          tags.push(line[i].value);
+        }
         i++;
       }
-
-      const rawTags = tagParts.join('');
-      tags = rawTags.split(',').map((tagEntry) => {
-        const [name, color] = tagEntry.split(':');
-        return {
-          name: name.trim(),
-          color: (color ?? '#000000').trim(),
-        };
-      });
     }
 
+    let libs: string[] = [];
+    if (libsIndex !== -1) {
+      let i = libsIndex + 2;
+
+      while (i < line.length && line[i].type !== ELexerTokens.WHITESPACE) {
+        if (line[i].type === ELexerTokens.ID) {
+          libs.push(line[i].value);
+        }
+        i++;
+      }
+    }
 
     const fileNode: HavenFSNode = {
       id: idToken.value,
@@ -77,6 +80,7 @@ export class FileParser extends BaseParser {
       name: nameToken,
       size,
       tags,
+      libs,
     };
 
     this.nodes.push(fileNode);

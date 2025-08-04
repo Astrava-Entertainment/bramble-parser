@@ -17,7 +17,7 @@ describe('HistoryParser integrated with Lexer', () => {
   });
 
   test('Parses history using the real lexer', () => {
-    const lexer = new BrambleLexer({document: fixture('test.example1.havenfs')});
+    const lexer = new BrambleLexer({document: fixture('test.example.havenfs')});
     lexer.run();
 
     const histChunk = lexer.getChunkMap().find(chunk => chunk.type === 'history');

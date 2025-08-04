@@ -13,7 +13,7 @@ describe('Tokenisation of File Headers', () => {
     const fakeContent = 'FILE f1a7e parent=92e1f name=logo.png size=20320 tags=branding,logo\n';
     vi.spyOn(fs, 'readFileSync').mockReturnValue(fakeContent);
 
-    const lexer = new BrambleLexer('./test/test.example1.havenfs');
+    const lexer = new BrambleLexer('./test/test.example.havenfs');
     lexer.tokenize();
 
     const filteredTokens = lexer.tokens.filter(t => t.type !== ELexerTokens.WHITESPACE);
@@ -57,7 +57,7 @@ describe('Tokenisation of File Headers', () => {
     const fakeContent = 'FILE f1a7e\n';
     vi.spyOn(fs, 'readFileSync').mockReturnValue(fakeContent);
 
-    const lexer = new BrambleLexer('./test/test.example1.havenfs');
+    const lexer = new BrambleLexer('./test/test.example.havenfs');
     lexer.tokenize();
 
     const filteredTokens = lexer.tokens.filter(t => t.type !== ELexerTokens.WHITESPACE);
@@ -71,7 +71,7 @@ describe('Tokenisation of File Headers', () => {
     const fakeContent = 'FILE f1a7e name=test.png size=1000\n';
     vi.spyOn(fs, 'readFileSync').mockReturnValue(fakeContent);
 
-    const lexer = new BrambleLexer('./test/test.example1.havenfs');
+    const lexer = new BrambleLexer('./test/test.example.havenfs');
     lexer.tokenize();
 
     const filteredTokens = lexer.tokens.filter(t => t.type !== ELexerTokens.WHITESPACE);
@@ -91,7 +91,7 @@ describe('Tokenisation of File Headers', () => {
     const fakeContent = 'FILE\n';
     vi.spyOn(fs, 'readFileSync').mockReturnValue(fakeContent);
 
-    const lexer = new BrambleLexer('./test/test.example1.havenfs');
+    const lexer = new BrambleLexer('./test/test.example.havenfs');
     lexer.tokenize();
 
     const filteredTokens = lexer.tokens.filter(t => t.type !== ELexerTokens.WHITESPACE);
