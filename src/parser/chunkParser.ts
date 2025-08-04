@@ -128,6 +128,8 @@ export class ChunkParser {
   private getAllowedTokensByChunk(): Record<string, ELexerTokens[]> {
     return {
       files: [ELexerTokens.KW_FILE, ELexerTokens.KW_META],
+      libraries: [ELexerTokens.KW_LIB],
+      tagmap: [ELexerTokens.KW_TAG],
       directories: [ELexerTokens.KW_DIR],
       refs: [ELexerTokens.KW_REF],
       history: [ELexerTokens.KW_HIST],

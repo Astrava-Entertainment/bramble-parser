@@ -25,7 +25,8 @@ async function main() {
         const chunkMap = lexer.getChunkMap();
         const parser = new BrambleFSParser(chunkMap);
         parser.run();
-        parser.debugLibraries();
+        // parser.debugLibraries();
+        parser.debugTagmap();
         // parser.debugFS();
 
         const errors = errorManager.getAll();

@@ -24,22 +24,22 @@ LIB a300 info=b400,b401
 LIB a301 info=b500,b501
 
 #CHUNK tagmap @4000
-TAG b400 design:#8E44AD RF=f2001
-TAG b401 sketch:#1ABC9C RF=f2001
-TAG b402 branding:#FF5733 RF=f2002
-TAG b403 icons:#2980B9 RF=f2003
-TAG b404 docs:#2ECC71 RF=f2004
-TAG b405 info:#9B59B6 RF=f2004
-TAG b406 config:#34495E RF=f2005
-TAG b407 script:#F1C40F RF=f2006
-TAG b500 grid:#D35400 RF=f3001
-TAG b501 layout:#5DADE2 RF=f3001
-TAG b502 logo:#E74C3C RF=f3002
-TAG b503 button:#1F618D RF=f3003
-TAG b504 manual:#27AE60 RF=f3004
-TAG b505 help:#9C59B6 RF=f3004
-TAG b506 env:#2C3E50 RF=f3005
-TAG b507 utility:#F39C12 RF=f3006
+TAG b400 design:#8E44AD FR=f2001
+TAG b401 sketch:#1ABC9C FR=f2001
+TAG b402 branding:#FF5733 FR=f2002
+TAG b403 icons:#2980B9 FR=f2003
+TAG b404 docs:#2ECC71 FR=f2004
+TAG b405 info:#9B59B6 FR=f2004
+TAG b406 config:#34495E FR=f2005
+TAG b407 script:#F1C40F FR=f2006
+TAG b500 grid:#D35400 FR=f3001
+TAG b501 layout:#5DADE2 FR=f3001
+TAG b502 logo:#E74C3C FR=f3002
+TAG b503 button:#1F618D FR=f3003
+TAG b504 manual:#27AE60 FR=f3004
+TAG b505 help:#9C59B6 FR=f3004
+TAG b506 env:#2C3E50 FR=f3005
+TAG b507 utility:#F39C12 FR=f3006
 
 #CHUNK directories @21000
 DIR 93a1f parent=root name=assets
@@ -56,7 +56,7 @@ DIR 94a5f parent=root name=utilities
 
 #CHUNK refs @28000
 REF f3002 to=f3001 type=derived-from context=logo-extraction
-REF f3004 to=7e891 type=used-by context=training-material
+REF f3004 to=f3005 type=used-by context=training-material
 REF f3006 to=f3003 type=depends-on context=button-behavior
 
 #CHUNK history f3002

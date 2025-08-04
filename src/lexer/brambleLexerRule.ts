@@ -25,6 +25,7 @@ export const LexerRules: BrambleLexerRule[] = [
   new BrambleLexerRule(/^META\b/, ELexerTokens.KW_META),
   new BrambleLexerRule(/^LIB\b/, ELexerTokens.KW_LIB),
   new BrambleLexerRule(/^TAG\b/, ELexerTokens.KW_TAG),
+  new BrambleLexerRule(/^FR\b/, ELexerTokens.KW_FR),
   new BrambleLexerRule(/^DIR\b/, ELexerTokens.KW_DIR),
   new BrambleLexerRule(/^REF\b/, ELexerTokens.KW_REF),
   new BrambleLexerRule(/^HIST\b/, ELexerTokens.KW_HIST),
@@ -37,6 +38,9 @@ export const LexerRules: BrambleLexerRule[] = [
   new BrambleLexerRule(/^tags\b/, ELexerTokens.ATT_TAGS),
   new BrambleLexerRule(/^modified\b/, ELexerTokens.ATT_MODIFIED),     // ACTION
   new BrambleLexerRule(/^created\b/, ELexerTokens.ATT_CREATED),       // ACTION
+  new BrambleLexerRule(/^updated\b/, ELexerTokens.ATT_UPDATE),        // ACTION
+  new BrambleLexerRule(/^deleted\b/, ELexerTokens.ATT_DELETED),       // ACTION
+  new BrambleLexerRule(/^restored\b/, ELexerTokens.ATT_RESTORED),     // ACTION
   new BrambleLexerRule(/^mimetype\b/, ELexerTokens.ATT_MIMETYPE),
   new BrambleLexerRule(/^to\b/, ELexerTokens.ATT_TO),
   new BrambleLexerRule(/^type\b/, ELexerTokens.ATT_TYPE),
