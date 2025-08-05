@@ -12,6 +12,7 @@ class BrambleLexerRule {
 export const LexerRules: BrambleLexerRule[] = [
   new BrambleLexerRule(/^#[0-9a-fA-F]{6}\b/, ELexerTokens.ATT_COLOR),   // PRIORITY collision #
 
+  new BrambleLexerRule(/^x-[^\s]+/, ELexerTokens.DEPRECATED),
   new BrambleLexerRule(/^#/, ELexerTokens.HASH),                        // GENERAL collision #
   new BrambleLexerRule(/^@/, ELexerTokens.AT),
   new BrambleLexerRule(/^-/, ELexerTokens.LINE),

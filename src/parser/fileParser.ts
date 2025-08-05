@@ -49,6 +49,7 @@ export class FileParser extends BaseParser {
     const nameToken = line[nameIndex + 2]?.value;
     const size = sizeIndex !== -1 ? parseInt(line[sizeIndex + 2]?.value, 10) : undefined;
 
+
     let tags: string[] = [];
     if (tagsIndex !== -1) {
       let i = tagsIndex + 2;

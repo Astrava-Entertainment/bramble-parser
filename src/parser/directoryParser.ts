@@ -22,7 +22,7 @@ export class DirectoryParser extends BaseParser {
 
       if (!idToken || parentIndex === -1 || nameIndex === -1) {
         const position = { line: first?.line ?? 0, column: first?.start ?? 0 };
-        new HavenException('Missing mandatory fields in FILE', position, ErrorCode.MISSING_TOKEN);
+        new HavenException('Missing mandatory fields in DIR', position, ErrorCode.MISSING_TOKEN);
         continue;
       }
 

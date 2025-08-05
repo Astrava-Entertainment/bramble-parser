@@ -24,7 +24,7 @@ export class ReferenceParser extends BaseParser {
       const contextToken = this.getTokenValueAt(line, ELexerTokens.ATT_CONTEXT, true);
 
       if (!fromIdToken || !toToken || !typeToken) {
-        new HavenException('Missing mandatory fields in FILE', position, ErrorCode.MISSING_TOKEN);
+        new HavenException('Missing mandatory fields in REF', position, ErrorCode.MISSING_TOKEN);
         continue;
       }
 

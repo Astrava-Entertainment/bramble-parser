@@ -4,6 +4,7 @@ import { ELexerTokens, ErrorCode } from '~/common';
 import { HavenException } from '~/errors';
 import { ChunkParser } from '~/parser/chunkParser';
 import { errorManager } from '~/errors/errorManager';
+import { BranchParser } from '~/parser/branchParser';
 
 export class BrambleLexer {
   documentContent: string;
@@ -11,12 +12,14 @@ export class BrambleLexer {
   tokensByLine: ILexerToken[][];
   chunks: IChunkBlock[];
   chunkMap: ChunkMap[];
+  branch: HavenBranch | null;
 
   constructor({document = '', environment = 'node'}) {
     this.tokens = [];
     this.tokensByLine = [];
     this.chunks = [];
     this.chunkMap = [];
+    this.branch = null;
     if (environment === 'node') {
       this.documentContent = fs.readFileSync(document, 'utf8');
     } else {
@@ -156,12 +159,17 @@ export class BrambleLexer {
     }
   }
 
-  run() {
-    this.tokenize();
-    this.groupTokensByLine();
-    this.groupByChunkContext();
-    this.checkHashReferencesBetweenFiles();
-    this.mapChunks();
+  debugBranch() {
+    if (!this.branch) {
+      console.log("No branch found.");
+      return;
+    }
+
+    console.log("====== BRANCH INFO ======");
+    console.log(`Base  : ${this.branch.base.value} (line: ${this.branch.base.line}, col: ${this.branch.base.start})`);
+    console.log(`Parent: ${this.branch.parent.value} (line: ${this.branch.parent.line}, col: ${this.branch.parent.start})`);
+    console.log(`Head  : ${this.branch.head.value} (line: ${this.branch.head.line}, col: ${this.branch.head.start})`);
+    console.log("==========================");
   }
 
   getChunks() {
@@ -180,5 +188,29 @@ export class BrambleLexer {
       return [];
     }
     return this.chunkMap;
+  }
+
+  generateBranch() {
+    const branchParser = new BranchParser(this.tokensByLine);
+    this.branch = branchParser.getBranch();
+  }
+
+  getBranch(): HavenBranch | null {
+    if (this.branch == null) {
+      const position = { line: 0, column: 0 };
+      new HavenException('Branch does not exist', position, ErrorCode.MISSING_BRANCH);
+      return null;
+    }
+    return this.branch;
+  }
+
+  run() {
+    this.tokenize();
+    this.groupTokensByLine();
+    this.groupByChunkContext();
+    this.checkHashReferencesBetweenFiles();
+    this.mapChunks();
+
+    this.generateBranch();
   }
 }

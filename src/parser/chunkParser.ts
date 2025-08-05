@@ -23,8 +23,9 @@ export class ChunkParser {
       if (tokens.length === 0) return;
 
       const firstToken = tokens[0];
+      const secondToken = tokens[1];
 
-      if (this.isChunkHeader(firstToken)) {
+      if (this.isChunkHeader(firstToken, secondToken)) {
         this.flushCurrentChunk(currentChunkType, currentChunkHeader, currentChunkLines, chunks);
         currentChunkType = null;
         currentChunkHeader = [];
@@ -52,7 +53,7 @@ export class ChunkParser {
   private parseChunkHeader(tokens: ILexerToken[], index: number): { currentChunkType: string | null; currentChunkHeader: ILexerToken[] } {
     if (tokens[CHUNK_DECLARATION_INDEX]?.type !== ELexerTokens.KW_CHUNK) {
       const position = { line: index + 1, column: tokens[CHUNK_DECLARATION_INDEX].start };
-      new HavenException('Invalid chunk declaration', position, ErrorCode.INVALID_CHUNK_DECLARATION);
+      new HavenException(`Invalid chunk declaration ${tokens[CHUNK_DECLARATION_INDEX].value}`, position, ErrorCode.INVALID_CHUNK_DECLARATION);
       return { currentChunkType: null, currentChunkHeader: [] };
     }
 
@@ -136,8 +137,8 @@ export class ChunkParser {
     };
   }
 
-  private isChunkHeader(token: ILexerToken): boolean {
-    return token.type === ELexerTokens.HASH;
+  private isChunkHeader(token: ILexerToken, nextToken: ILexerToken): boolean {
+    return (token.type === ELexerTokens.HASH && nextToken.type === ELexerTokens.KW_CHUNK);
   }
 
   private validateTokenForChunk(

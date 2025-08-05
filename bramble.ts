@@ -20,6 +20,8 @@ async function main() {
 
         const lexer = new BrambleLexer({document: filePath});
         lexer.run();
+        // lexer.debugReadTokensByLine();
+        lexer.debugBranch();
         // lexer.debugChunks();
 
         const chunkMap = lexer.getChunkMap();

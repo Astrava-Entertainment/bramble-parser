@@ -1,4 +1,5 @@
 export enum ELexerTokens {
+  DEPRECATED,       // x-
   HASH,             // #
   AT,               // @
   LINE,             // -
