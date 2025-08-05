@@ -30,6 +30,7 @@ describe('HistoryParser integrated with Lexer', () => {
     expect(history[0].action).toBe('created');
     expect(history[1].user).toBe('ellie');
 
+    console.log(errorManager.getAll().length);
     expect(errorManager.getAll().length).toBe(0);
   });
 
