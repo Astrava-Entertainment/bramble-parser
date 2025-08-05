@@ -161,7 +161,7 @@ export class BrambleLexer {
 
   debugBranch() {
     if (!this.branch) {
-      console.log("No branch found.");
+      // console.log("No branch found.");
       return;
     }
 

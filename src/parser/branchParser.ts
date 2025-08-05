@@ -31,7 +31,7 @@ export class BranchParser {
 
     if (baseIndex === -1 || parentIndex === -1 || headIndex === -1) {
       const position = { line: row, column: 0 };
-      new HavenException('Missing branch fields', position, ErrorCode.MISSING_BRANCH_FIELDS);
+      // new HavenException('Missing branch fields', position, ErrorCode.MISSING_BRANCH_FIELDS);
       return;
     }
 
@@ -41,19 +41,19 @@ export class BranchParser {
 
     if (!baseValue) {
       const position = { line: row, column: baseIndex + 2 };
-      new HavenException('Missing branch fields', position, ErrorCode.MISSING_BRANCH_FIELDS);
+      // new HavenException('Missing branch fields', position, ErrorCode.MISSING_BRANCH_FIELDS);
       return;
     }
 
     if (!parentValue) {
       const position = { line: row, column: parentIndex + 2 };
-      new HavenException('Missing branch fields', position, ErrorCode.MISSING_BRANCH_FIELDS);
+      // new HavenException('Missing branch fields', position, ErrorCode.MISSING_BRANCH_FIELDS);
       return;
     }
 
     if (!headValue) {
       const position = { line: row, column: headIndex + 2 };
-      new HavenException('Missing branch fields', position, ErrorCode.MISSING_BRANCH_FIELDS);
+      // new HavenException('Missing branch fields', position, ErrorCode.MISSING_BRANCH_FIELDS);
       return;
     }
 
@@ -67,7 +67,7 @@ export class BranchParser {
   getBranch(): HavenBranch | null {
     if (this.branch == null) {
       const position = { line: 0, column: 0 };
-      new HavenException('Branch does not exist', position, ErrorCode.MISSING_BRANCH);
+      // new HavenException('Branch does not exist', position, ErrorCode.MISSING_BRANCH);
       return null;
     }
     return this.branch;
