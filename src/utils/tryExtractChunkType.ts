@@ -1,6 +1,6 @@
-import { ELexerTokens, ErrorCode } from '~/common';
-import { CHUNK_DECLARATION_INDEX, CHUNK_TYPE_INDEX } from '~/constants';
-import { HavenException } from '~/errors';
+import { ELexerTokens, ErrorCode } from '../common';
+import { CHUNK_DECLARATION_INDEX, CHUNK_TYPE_INDEX } from '../constants';
+import { HavenException } from '../errors';
 
 export function tryExtractChunkType(token: ILexerToken[], index: number) {
   const keywordToken = token[CHUNK_DECLARATION_INDEX];

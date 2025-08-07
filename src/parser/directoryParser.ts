@@ -1,7 +1,6 @@
-import { ELexerTokens, ErrorCode } from '~/common';
+import { ELexerTokens, ErrorCode } from '../common';
 import { BaseParser } from './baseParser';
-import { HavenException } from '~/errors';
-import { errorManager } from '~/errors/errorManager';
+import { HavenException } from '../errors';
 
 export class DirectoryParser extends BaseParser {
   nodes: HavenFSNode[];

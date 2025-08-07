@@ -1,10 +1,9 @@
-import { ErrorCode } from '~/common';
-import { HavenException } from '~/errors';
+import { ErrorCode } from '../common';
+import { HavenException } from '../errors';
 import { FileParser } from './fileParser';
 import { DirectoryParser } from './directoryParser';
 import { ReferenceParser } from './referenceParser';
 import { HistoryParser } from './historyParser';
-import { errorManager } from '~/errors/errorManager';
 
 export class BrambleFSParser {
   private chunkMap: ChunkMap[];

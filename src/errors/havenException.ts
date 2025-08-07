@@ -1,4 +1,4 @@
-import { ErrorCode } from '~/common';
+import { ErrorCode } from 'src/common';
 import { errorManager } from './errorManager';
 
 export class HavenException extends Error {

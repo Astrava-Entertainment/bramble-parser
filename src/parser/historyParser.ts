@@ -1,8 +1,7 @@
-import { ELexerTokens, ErrorCode } from '~/common';
+import { ELexerTokens, ErrorCode } from '../common';
 import { BaseParser } from './baseParser';
-import { HavenException } from '~/errors';
-import { AllowedActions } from '~/constants';
-import { errorManager } from '~/errors/errorManager';
+import { HavenException } from '../errors';
+import { AllowedActions } from '../constants';
 
 export class HistoryParser extends BaseParser {
   history: HavenHistoryTree[];

@@ -1,9 +1,8 @@
 import * as fs from 'fs';
 import { LexerRules } from './brambleLexerRule';
-import { ELexerTokens, ErrorCode } from '~/common';
-import { HavenException } from '~/errors';
-import { ChunkParser } from '~/parser/chunkParser';
-import { errorManager } from '~/errors/errorManager';
+import { HavenException } from 'src/errors';
+import { ELexerTokens, ErrorCode } from 'src/common';
+import { ChunkParser } from 'src/parser/chunkParser';
 
 export class BrambleLexer {
   documentContent: string;

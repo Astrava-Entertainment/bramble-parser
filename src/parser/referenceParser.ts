@@ -1,6 +1,6 @@
-import { ELexerTokens, ErrorCode } from '~/common';
+import { ELexerTokens, ErrorCode } from '../common';
 import { BaseParser } from './baseParser';
-import { HavenException } from '~/errors';
+import { HavenException } from '../errors';
 
 export class ReferenceParser extends BaseParser {
   references: HavenReference[];
@@ -32,7 +32,7 @@ export class ReferenceParser extends BaseParser {
         new HavenException('Missing mandatory reference field', position, ErrorCode.MISSING_TOKEN);
         continue;
       }
-      
+
       if (!this.hasFileById(fromIdToken.value)) {
         new HavenException(`Missing FILE: ${fromIdToken.value}`, position, ErrorCode.MISSING_TOKEN);
         continue;

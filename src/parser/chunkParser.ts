@@ -1,7 +1,6 @@
-import { ELexerTokens, ErrorCode } from '~/common';
-import { CHUNK_DECLARATION_INDEX, CHUNK_TYPE_INDEX, CHUNK_HEADER_HASH_INDEX, CHUNK_LINE_HASH_INDEX, CHUNK_LINE_INDEX, META_HASH_INDEX } from '~/constants';
-import { HavenException } from '~/errors';
-import { errorManager } from '~/errors/errorManager';
+import { ELexerTokens, ErrorCode } from '../common';
+import { CHUNK_DECLARATION_INDEX, CHUNK_TYPE_INDEX, CHUNK_HEADER_HASH_INDEX, CHUNK_LINE_HASH_INDEX, CHUNK_LINE_INDEX, META_HASH_INDEX } from '../constants';
+import { HavenException } from '../errors';
 
 export class ChunkParser {
   private tokensByLine: ILexerToken[][];
