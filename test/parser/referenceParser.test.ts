@@ -1,7 +1,7 @@
 import { describe, test, expect, beforeEach, vi } from 'bun:test';
-import { ReferenceParser } from '~/parser/referenceParser';
-import { BrambleLexer } from '~/lexer/brambleLexer';
-import { errorManager } from '~/errors/errorManager';
+import { ReferenceParser } from '../../src/parser/referenceParser';
+import { BrambleLexer } from '../../src/lexer/brambleLexer';
+import { errorManager } from '../../src/errors/errorManager';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 

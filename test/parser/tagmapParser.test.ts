@@ -1,7 +1,7 @@
 import { describe, test, expect, beforeEach, vi } from 'bun:test';
-import { TagmapParser } from '~/parser/tagmapParser';
-import { BrambleLexer } from '~/lexer/brambleLexer';
-import { errorManager } from '~/errors/errorManager';
+import { TagmapParser } from '../../src/parser/tagmapParser';
+import { BrambleLexer } from '../../src/lexer/brambleLexer';
+import { errorManager } from '../../src/errors/errorManager';
 import type { HavenFSNode, HavenTagmap } from '~/model/types';
 
 describe('TagmapParser integrated with Lexer', () => {
@@ -50,7 +50,7 @@ describe('TagmapParser integrated with Lexer', () => {
           name: "favourite",
           color: "#ffffff",
         },
-        fileRef: "f1b88"
+        fileRef: " "
       },
     ]);
 

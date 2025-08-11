@@ -1,7 +1,7 @@
 import { describe, test, expect } from 'bun:test';
-import { HavenException } from "~/errors";
-import { ELexerTokens, ErrorCode } from "~/common";
-import { tryExtractChunkType } from '~/utils';
+import { HavenException } from "../src/errors";
+import { ELexerTokens, ErrorCode } from "../src/common";
+import { tryExtractChunkType } from '../src/utils';
 
 describe("tryExtractChunkType", () => {
   test("returns chunk type if tokens are valid", () => {

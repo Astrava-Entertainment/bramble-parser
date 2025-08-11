@@ -1,5 +1,5 @@
-import { ELexerTokens, ErrorCode } from "~/common";
-import { HavenException } from "~/errors";
+import { ELexerTokens, ErrorCode } from "../common";
+import { HavenException } from "../errors";
 
 export class BranchParser {
   private tokensByLine: ILexerToken[][];

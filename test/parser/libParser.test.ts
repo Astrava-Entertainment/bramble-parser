@@ -1,8 +1,8 @@
 import { describe, test, expect, beforeEach, vi } from 'bun:test';
-import { LibrarieParser } from '~/parser/libParser';
-import { BrambleLexer } from '~/lexer/brambleLexer';
-import { errorManager } from '~/errors/errorManager';
-import type { HavenFSNode, HavenLibrarie } from '~/model/types';
+import { LibrarieParser } from '../../src/parser/libParser';
+import { BrambleLexer } from '../../src/lexer/brambleLexer';
+import { errorManager } from '../../src/errors/errorManager';
+// import type { HavenFSNode, HavenLibrarie } from '~/model/types';
 
 describe('LibrarieParser integrated with Lexer', () => {
   beforeEach(() => {

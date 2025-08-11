@@ -1,6 +1,6 @@
-import { ELexerTokens, ErrorCode } from "~/common";
+import { ELexerTokens, ErrorCode } from "../common";
 import { BaseParser } from "./baseParser";
-import { HavenException } from "~/errors";
+import { HavenException } from "../errors";
 
 export class TagmapParser extends BaseParser {
   tagmap: HavenTagmap[];

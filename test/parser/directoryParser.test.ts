@@ -1,7 +1,7 @@
 import { describe, test, expect, vi, beforeEach } from 'bun:test';
-import { BrambleLexer } from '~/lexer/brambleLexer';
-import { errorManager } from '~/errors/errorManager';
-import { DirectoryParser } from '~/parser/directoryParser';
+import { BrambleLexer } from '../../src/lexer/brambleLexer';
+import { errorManager } from '../../src/errors/errorManager';
+import { DirectoryParser } from '../../src/parser/directoryParser';
 import * as fs from 'fs';
 
 describe('DirectoryParser integrated with Lexer', () => {
@@ -74,7 +74,7 @@ DIR parent=root name=images
 `.trim();
     vi.spyOn(fs, 'readFileSync').mockReturnValue(fakeContent);
 
-    const lexer = new BrambleLexer('./test/examples/test.invalid.directory.example.havenfs');
+    const lexer = new BrambleLexer({document: './test/examples/test.invalid.directory.example.havenfs'});
     lexer.tokenize();
     lexer.groupTokensByLine();
     lexer.groupByChunkContext();

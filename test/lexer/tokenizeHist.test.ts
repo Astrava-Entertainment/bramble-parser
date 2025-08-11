@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import { describe, test, expect, vi, beforeEach } from 'bun:test';
-import { ELexerTokens } from '~/common';
-import { BrambleLexer } from '~/lexer/brambleLexer';
+import { ELexerTokens } from '../../src/common';
+import { BrambleLexer } from '../../src/lexer/brambleLexer';
 
 describe('Tokenisation of HIST Headers', () => {
 

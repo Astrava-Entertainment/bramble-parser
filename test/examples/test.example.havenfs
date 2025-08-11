@@ -17,7 +17,7 @@ LIB a300 info=b400,b401
 #CHUNK tagmap @4000
 TAG b400 branding:#8E44AD FR=f1a7e
 TAG b401 logo FR=f1a7e
-TAG b402 favourite FR=f1b88
+TAG b402 favourite
 
 #CHUNK refs @27000
 REF f1a7e to=3d93e type=used-by context=thumbnail

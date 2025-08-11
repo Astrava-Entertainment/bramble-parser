@@ -1,6 +1,6 @@
 import { test, expect } from "bun:test";
-import { BrambleLexer } from "~/lexer";
-import { BrambleFSParser } from "~/parser/parser";
+import { BrambleLexer } from "../src/lexer";
+import { BrambleFSParser } from "../src/parser/parser";
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import fs from "fs";

@@ -1,7 +1,7 @@
 import { describe, test, expect, beforeEach, vi } from 'bun:test';
-import { FileParser } from '~/parser/fileParser';
-import { BrambleLexer } from '~/lexer/brambleLexer';
-import { errorManager } from '~/errors/errorManager';
+import { FileParser } from '../../src/parser/fileParser';
+import { BrambleLexer } from '../../src/lexer/brambleLexer';
+import { errorManager } from '../../src/errors/errorManager';
 import type { HavenFSNode } from '~/model/types';
 
 describe('FileParser integrated with Lexer', () => {

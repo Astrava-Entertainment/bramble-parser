@@ -1,7 +1,7 @@
 import { describe, test, expect, vi, beforeEach } from 'bun:test';
-import { BrambleLexer } from '~/lexer/brambleLexer';
-import { BranchParser } from '~/parser/branchParser';
-import {errorManager} from '~/errors/errorManager'
+import { BrambleLexer } from '../../src/lexer/brambleLexer';
+import { BranchParser } from '../../src/parser/branchParser';
+import {errorManager} from '../../src/errors/errorManager'
 
 describe("Branch parser with Lexer", () => {
   beforeEach(() => {

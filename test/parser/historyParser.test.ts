@@ -1,7 +1,7 @@
 import { describe, test, expect, beforeEach, vi } from 'bun:test';
-import { HistoryParser } from '~/parser/historyParser';
-import { BrambleLexer } from '~/lexer/brambleLexer';
-import { errorManager } from '~/errors/errorManager';
+import { HistoryParser } from '../../src/parser/historyParser';
+import { BrambleLexer } from '../../src/lexer/brambleLexer';
+import { errorManager } from '../../src/errors/errorManager';
 import type { HavenHistoryTree } from '~/model/types';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';

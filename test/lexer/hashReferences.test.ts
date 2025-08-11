@@ -1,8 +1,8 @@
 import { describe, test, expect, vi, beforeEach } from 'bun:test';
 import { BrambleLexer } from '../../src/lexer/brambleLexer';
 import * as fs from 'fs';
-import { ChunkParser } from '~/parser/chunkParser';
-import { errorManager } from '~/errors/errorManager';
+import { ChunkParser } from '../../src/parser/chunkParser';
+import { errorManager } from '../../src/errors/errorManager';
 
 describe('Hash verification between files', () => {
 

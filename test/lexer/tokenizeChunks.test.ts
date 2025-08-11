@@ -1,8 +1,8 @@
 import * as fs from 'fs';
 import { describe, test, expect, vi, beforeEach } from 'bun:test';
-import { ELexerTokens } from '~/common';
-import { BrambleLexer } from '~/lexer/brambleLexer';
-import { errorManager } from '~/errors/errorManager';
+import { ELexerTokens } from '../../src/common';
+import { BrambleLexer } from '../../src/lexer/brambleLexer';
+import { errorManager } from '../../src/errors/errorManager';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 

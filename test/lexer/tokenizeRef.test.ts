@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import { describe, test, expect, vi, beforeEach } from 'bun:test';
-import { ELexerTokens } from '~/common';
-import { BrambleLexer } from '~/lexer/brambleLexer';
+import { ELexerTokens } from '../../src/common';
+import { BrambleLexer } from '../../src/lexer/brambleLexer';
 
 describe('Tokenisation of REF Headers', () => {
 
@@ -13,7 +13,7 @@ describe('Tokenisation of REF Headers', () => {
     const fakeContent = 'REF f1a7e to=3d93e type=used-by context=thumbnail\n';
     vi.spyOn(fs, 'readFileSync').mockReturnValue(fakeContent);
 
-    const lexer = new BrambleLexer('./test/test.example.havenfs');
+    const lexer = new BrambleLexer({document: './test/test.example.havenfs'});
     lexer.tokenize();
 
     const filteredTokens = lexer.tokens.filter(t => t.type !== ELexerTokens.WHITESPACE);
@@ -51,7 +51,7 @@ describe('Tokenisation of REF Headers', () => {
     const fakeContent = 'REF f1a7e\n';
     vi.spyOn(fs, 'readFileSync').mockReturnValue(fakeContent);
 
-    const lexer = new BrambleLexer('./test/test.example.havenfs');
+    const lexer = new BrambleLexer({document: './test/test.example.havenfs'});
     lexer.tokenize();
 
     const filteredTokens = lexer.tokens.filter(t => t.type !== ELexerTokens.WHITESPACE);
@@ -65,7 +65,7 @@ describe('Tokenisation of REF Headers', () => {
     const fakeContent = 'REF\n';
     vi.spyOn(fs, 'readFileSync').mockReturnValue(fakeContent);
 
-    const lexer = new BrambleLexer('./test/test.example.havenfs');
+    const lexer = new BrambleLexer({document: './test/test.example.havenfs'});
     lexer.tokenize();
 
     const filteredTokens = lexer.tokens.filter(t => t.type !== ELexerTokens.WHITESPACE);

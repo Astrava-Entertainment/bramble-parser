@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import { describe, test, expect, vi, beforeEach } from 'bun:test';
-import { BrambleLexer } from '~/lexer/brambleLexer';
-import { ELexerTokens } from '~/common';
+import { BrambleLexer } from '../../src/lexer/brambleLexer';
+import { ELexerTokens } from '../../src/common';
 
 describe('Tokenisation of META Headers', () => {
 
