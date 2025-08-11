@@ -1,4 +1,5 @@
 export enum ELexerTokens {
+  DEPRECATED,       // x-
   HASH,             // #
   AT,               // @
   LINE,             // -
@@ -6,19 +7,29 @@ export enum ELexerTokens {
   DOTS,             // :
   COMMA,            // ,
 
+  KW_BRANCH,        // BRANCH
   KW_CHUNK,         // CHUNK
   KW_FILE,          // FILE
   KW_META,          // META
+  KW_LIB,           // LIB
+  KW_TAG,           // TAG
+  KW_FR,            // FR
   KW_DIR,           // DIR
   KW_REF,           // REF
   KW_HIST,          // HIST
 
+  ATT_BASE,         // base
+  ATT_HEAD,         // head
   ATT_PARENT,       // parent
   ATT_NAME,         // name
   ATT_SIZE,         // size
   ATT_TAGS,         // tags
-  ATT_MODIFIED,     // modified
-  ATT_CREATED,      // created
+  ATT_LIBS,         // libs
+  ATT_MODIFIED,     // modified         // ACTION
+  ATT_CREATED,      // created          // ACTION
+  ATT_UPDATE,       // update           // ACTION
+  ATT_DELETED,      // deleted          // ACTION
+  ATT_RESTORED,     // restored         // ACTION
   ATT_MIMETYPE,     // mimetype
   ATT_TO,           // to
   ATT_TYPE,         // type

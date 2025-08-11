@@ -12,7 +12,7 @@ describe('File reading', () => {
     const fakeContent = '# chunk "files"\n';
     vi.spyOn(fs, 'readFileSync').mockReturnValue(fakeContent);
 
-    const lexer = new BrambleLexer('./test/test.example1.havenfs');
+    const lexer = new BrambleLexer('./test/test.example.havenfs');
     expect(lexer.documentContent).toBe(fakeContent);
   });
 

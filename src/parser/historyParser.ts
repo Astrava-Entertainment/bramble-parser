@@ -24,7 +24,7 @@ export class HistoryParser extends BaseParser {
 
       if (!idToken || !timestampToken || userIndex === -1 || actionIndex === -1 || hashIndex === -1) {
         const position = { line: first.line, column: first.start };
-        new HavenException('Missing mandatory fields in FILE', position, ErrorCode.MISSING_TOKEN);
+        new HavenException('Missing mandatory fields in HIST', position, ErrorCode.MISSING_TOKEN);
         return;
       }
 
@@ -34,6 +34,8 @@ export class HistoryParser extends BaseParser {
 
       if (!AllowedActions.includes(actionToken)) {
         const position = { line: line[actionIndex + 2].line, column: line[actionIndex + 2].start };
+        console.log(actionToken);
+
         new HavenException(`Invalid action: ${actionToken}`, position, ErrorCode.INVALID_HISTORY_ACTION);
         return;
       }

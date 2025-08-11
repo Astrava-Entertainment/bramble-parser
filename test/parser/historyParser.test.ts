@@ -17,7 +17,7 @@ describe('HistoryParser integrated with Lexer', () => {
   });
 
   test('Parses history using the real lexer', () => {
-    const lexer = new BrambleLexer({document: fixture('test.example1.havenfs')});
+    const lexer = new BrambleLexer({document: fixture('test.example.havenfs')});
     lexer.run();
 
     const histChunk = lexer.getChunkMap().find(chunk => chunk.type === 'history');
@@ -30,6 +30,7 @@ describe('HistoryParser integrated with Lexer', () => {
     expect(history[0].action).toBe('created');
     expect(history[1].user).toBe('ellie');
 
+    console.log(errorManager.getAll().length);
     expect(errorManager.getAll().length).toBe(0);
   });
 

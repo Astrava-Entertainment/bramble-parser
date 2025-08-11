@@ -12,6 +12,7 @@ class BrambleLexerRule {
 export const LexerRules: BrambleLexerRule[] = [
   new BrambleLexerRule(/^#[0-9a-fA-F]{6}\b/, ELexerTokens.ATT_COLOR),   // PRIORITY collision #
 
+  new BrambleLexerRule(/^x-[^\s]+/, ELexerTokens.DEPRECATED),
   new BrambleLexerRule(/^#/, ELexerTokens.HASH),                        // GENERAL collision #
   new BrambleLexerRule(/^@/, ELexerTokens.AT),
   new BrambleLexerRule(/^-/, ELexerTokens.LINE),
@@ -19,19 +20,29 @@ export const LexerRules: BrambleLexerRule[] = [
   new BrambleLexerRule(/^:/, ELexerTokens.DOTS),
   new BrambleLexerRule(/^,/, ELexerTokens.COMMA),
 
+  new BrambleLexerRule(/^BRANCH\b/, ELexerTokens.KW_BRANCH),
   new BrambleLexerRule(/^CHUNK\b/, ELexerTokens.KW_CHUNK),
   new BrambleLexerRule(/^FILE\b/, ELexerTokens.KW_FILE),
   new BrambleLexerRule(/^META\b/, ELexerTokens.KW_META),
+  new BrambleLexerRule(/^LIB\b/, ELexerTokens.KW_LIB),
+  new BrambleLexerRule(/^TAG\b/, ELexerTokens.KW_TAG),
+  new BrambleLexerRule(/^FR\b/, ELexerTokens.KW_FR),
   new BrambleLexerRule(/^DIR\b/, ELexerTokens.KW_DIR),
   new BrambleLexerRule(/^REF\b/, ELexerTokens.KW_REF),
   new BrambleLexerRule(/^HIST\b/, ELexerTokens.KW_HIST),
 
+  new BrambleLexerRule(/^base\b/, ELexerTokens.ATT_BASE),
+  new BrambleLexerRule(/^head\b/, ELexerTokens.ATT_HEAD),
   new BrambleLexerRule(/^parent\b/, ELexerTokens.ATT_PARENT),
   new BrambleLexerRule(/^name\b/, ELexerTokens.ATT_NAME),
   new BrambleLexerRule(/^size\b/, ELexerTokens.ATT_SIZE),
   new BrambleLexerRule(/^tags\b/, ELexerTokens.ATT_TAGS),
+  new BrambleLexerRule(/^libs\b/, ELexerTokens.ATT_LIBS),
   new BrambleLexerRule(/^modified\b/, ELexerTokens.ATT_MODIFIED),     // ACTION
   new BrambleLexerRule(/^created\b/, ELexerTokens.ATT_CREATED),       // ACTION
+  new BrambleLexerRule(/^updated\b/, ELexerTokens.ATT_UPDATE),        // ACTION
+  new BrambleLexerRule(/^deleted\b/, ELexerTokens.ATT_DELETED),       // ACTION
+  new BrambleLexerRule(/^restored\b/, ELexerTokens.ATT_RESTORED),     // ACTION
   new BrambleLexerRule(/^mimetype\b/, ELexerTokens.ATT_MIMETYPE),
   new BrambleLexerRule(/^to\b/, ELexerTokens.ATT_TO),
   new BrambleLexerRule(/^type\b/, ELexerTokens.ATT_TYPE),
