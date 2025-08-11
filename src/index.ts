@@ -20,8 +20,17 @@ export class Bramble {
     return this.lexer.getChunkMap();
   }
 
+  // Return structured files and directories
   getJSON() {
     return this.parser.getJSON();
+  }
+
+  getTagmap() {
+    return this.parser.getTagmap();
+  }
+
+  getLibraries() {
+    return this.parser.getLibraries();
   }
 
   getErrors() {

@@ -104,6 +104,14 @@ export class BrambleFSParser {
     return this.nodes;
   }
 
+  public getTagmap() {
+    return this.tagmap;
+  }
+
+  public getLibraries() {
+    return this.libraries;
+  }
+
   public run() {
     this.parse();
     this.linkData();
