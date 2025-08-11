@@ -13,13 +13,24 @@ Bramble is a lightweight recursive descent parser that processes .havenfs files,
 A typical `.havenfs` input file would look like this:
 
 ```bash
+#BRANCH base=main parent=b0011 head=b0012
+
 #CHUNK files 0-999 @0
 FILE f1a7e parent=92e1f name=logo.png size=20320 tags=branding,logo
 META f1a7e modified=1723472381 created=1723472370 mimetype=image/png
 
 #CHUNK files 1000-1999 @12010
-FILE f1b88 parent=92e1f name=screenshot1.png size=50320
+FILE f1b88 parent=92e1f name=screenshot1.png size=50320 libs=a300
 META f1b88 modified=1723472381 created=1723472370 mimetype=image/png
+
+#CHUNK libraries @3000
+LIB a300 info=b400,b401
+
+#CHUNK tagmap @4500
+TAG b401 branding:#8E44AD FR=f1a7e
+TAG b402 logo:#1ABC9C FR=f1a7e
+TAG b402 bin:#464646
+TAG b402 favourite:#A6DB5A
 
 #CHUNK directories @25000
 DIR 92e1f parent=root name=images
