@@ -17,7 +17,7 @@ declare global {
   export interface HavenLibrarie {
     id: string;          // Lib id, e.g., "a300"
     name: string;        // Lib name, e.g., "info"
-    tagId: string;       // Tag id, e.g., "t4000"
+    tagId?: string;       // Tag id, e.g., "t4000"
   }
 
   export interface HavenTagmap {

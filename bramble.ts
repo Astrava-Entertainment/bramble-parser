@@ -21,7 +21,7 @@ async function main() {
         const lexer = new BrambleLexer({document: filePath});
         lexer.run();
         // lexer.debugReadTokensByLine();
-        lexer.debugBranch();
+        // lexer.debugBranch();
         // lexer.debugChunks();
 
         const chunkMap = lexer.getChunkMap();
@@ -29,7 +29,9 @@ async function main() {
         parser.run();
         // parser.debugLibraries();
         // parser.debugTagmap();
-        parser.debugFS();
+        // parser.debugFS();
+        console.log(parser.getLibraries());
+
 
         const errors = errorManager.getAll();
         if (errors.length > 0) {

@@ -1,27 +1,62 @@
-#BRANCH base=main parent=b0011 head=b0012
-
 #CHUNK files 0-999 @0
-FILE f1a7e parent=92e1f name=logo.png size=20320 tags=branding,logo
-META f1a7e modified=1723472381 created=1723472370 mimetype=image/png
+FILE f1a7e parent=92e1f name=logo.png size=20320 tags=b401,b402
+META f1a7e modified=20240813T1419 created=20240813T1419 mimetype=image/png
 
-#CHUNK files 1000-1999 @12010
-FILE f1b88 parent=92e1f name=screenshot1.png size=50320 libs=a300
-META f1b88 modified=1723472381 created=1723472370 mimetype=image/png
+FILE f1b88 parent=92e1f name=screenshot1.png size=50320 tags=b403 libs=a301
+META f1b88 modified=20240812T1418 created=20240812T1418 mimetype=image/png
+
+FILE f1c99 parent=92e2f name=favicon.ico size=2048 tags=b403
+META f1c99 modified=1723472401 created=1723472390 mimetype=image/x-icon
+
+FILE f1d01 parent=92e3f name=readme.md size=1234 tags=b404,b405 libs=a301
+META f1d01 modified=1723472481 created=1723472400 mimetype=text/markdown
+
+FILE f1d02 parent=92e3f name=changelog.md size=1532 tags=b404,b405
+META f1d02 modified=1723472499 created=1723472450 mimetype=text/markdown
+
+FILE f1d03 parent=92e4f name=api-spec.yaml size=3321
+META f1d03 modified=1723472501 created=1723472460 mimetype=application/x-yaml
+
+FILE f1e01 parent=92e5f name=demo.mp4 size=15032103 libs=a302
+META f1e01 modified=1723472551 created=1723472500 mimetype=video/mp4
+
+FILE f1f01 parent=92e6f name=build.sh size=923
+META f1f01 modified=1723472600 created=1723472590 mimetype=application/x-sh
+
+FILE f1f02 parent=92e7f name=upload.ts size=1430
+META f1f02 modified=1723472650 created=1723472620 mimetype=application/typescript
+
+FILE 3d931 parent=92e3f name=project.md size=2453
+META 3d931 modified=1723472700 created=1723472680 mimetype=text/markdown
+
+FILE 3d932 parent=92e3f name=project_beta.md size=2453
+META 3d932 modified=1723472700 created=1723472680 mimetype=text/markdown
 
 #CHUNK libraries @3000
-LIB a300 info=b400,b401
+LIB a300 info=b401,b402
+LIB a301 important=b403,b404,b405
+LIB a302 video=b404,b405,b406
 
 #CHUNK tagmap @4500
-TAG b401 branding:#8E44AD FR=f1a7e
-TAG b402 logo:#1ABC9C FR=f1a7e
-TAG b402 bin:#464646
-TAG b402 favourite:#A6DB5A
+TAG b401 branding:#FF5733 FR=f1a7e
+TAG b402 logo:#C70039 FR=f1a7e
+TAG b403 references:#3498DB FR=f1b88,f1c99
+TAG b404 info:#9B59B6 FR=f1d01,f1d02,f1e01
+TAG b405 relevant:#2ECC71 FR=f1d01,f1d02,f1e01
+TAG b406 video:#F39C12 FR=f1e01
 
-#CHUNK directories @25000
+#CHUNK directories @20000
 DIR 92e1f parent=root name=images
+DIR 92e2f parent=92e1f name=icons
+DIR 92e3f parent=root name=docs
+DIR 92e4f parent=92e3f name=specs
+DIR 92e5f parent=root name=videos
+DIR 92e6f parent=root name=scripts
+DIR 92e7f parent=92e6f name=deploy
 
 #CHUNK refs @27000
-REF f1a7e to=3d93e type=used-by context=thumbnail
+REF f1a7e to=3d931 type=used-by context=thumbnail
+REF f1a7e to=3d932 type=used-by context=thumbnail
 
 #CHUNK history f1a7e
 HIST f1a7e 20250625T1230 user=ellie action=created hash=abc123
