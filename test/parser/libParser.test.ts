@@ -28,10 +28,7 @@ describe('LibrarieParser integrated with Lexer', () => {
 
     expect(libraries).toHaveLength(1);
     expect(Object.fromEntries(libraries)).toEqual({
-      "a300": [
-        { id: "a300", name: "info", tagId: "b400" },
-        { id: "a300", name: "info", tagId: "b401" },
-      ],
+      "a300": { name: "info", tagsId: ["b400", "b401"] }
     });
 
   });

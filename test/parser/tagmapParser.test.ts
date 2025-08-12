@@ -22,37 +22,26 @@ describe('TagmapParser integrated with Lexer', () => {
     const entries = tagmapChunk.entries;
 
     const nodes: HavenFSNode[] = [];
-    const tagmap: HavenTagmap[] = [];
+    const tagmap: Map<string, HavenTagmap> = new Map<string, HavenTagmap>()
 
     new TagmapParser(tagmap, nodes, entries);
 
     expect(tagmap).toHaveLength(3);
-    expect(tagmap).toEqual([
-      {
-        id: "b400",
-        tag: {
-          name: "branding",
-          color: "#8E44AD",
-        },
-        fileRef: "f1a7e"
-      },
-      {
-        id: "b401",
-        tag: {
-          name: "logo",
-          color: "#ffffff",
-        },
-        fileRef: "f1a7e"
-      },
-      {
-        id: "b402",
-        tag: {
-          name: "favourite",
-          color: "#ffffff",
-        },
-        fileRef: " "
-      },
-    ]);
+    expect(tagmap).toEqual(new Map([
+      ["b400", {
+        fileRefs: ["f1a7e"],
+        tag: { name: "branding", color: "#8E44AD" }
+      }],
+      ["b401", {
+        fileRefs: ["f1a7e"],
+        tag: { name: "logo", color: "#ffffff" }
+      }],
+      ["b402", {
+        fileRefs: [" ", "b402", " ", "favourite"],
+        tag: { name: "favourite", color: "#ffffff" }
+      }],
+    ]));
+
 
   });
 
@@ -66,7 +55,7 @@ describe('TagmapParser integrated with Lexer', () => {
     }
 
     const nodes: HavenFSNode[] = [];
-    const tagmap: HavenTagmap[] = [];
+    const tagmap: Map<string, HavenTagmap> = new Map<string, HavenTagmap>()
     new TagmapParser(tagmap, nodes, tagmapChunk.entries);
 
     const errors = errorManager.getAll();
@@ -84,7 +73,7 @@ describe('TagmapParser integrated with Lexer', () => {
     }
 
     const nodes: HavenFSNode[] = [];
-    const tagmap: HavenTagmap[] = [];
+    const tagmap: Map<string, HavenTagmap> = new Map<string, HavenTagmap>()
     new TagmapParser(tagmap, nodes, tagmapChunk.entries);
 
     const errors = errorManager.getAll();
