@@ -3,10 +3,10 @@ import { BaseParser } from "./baseParser";
 import { HavenException } from "../errors";
 
 export class TagmapParser extends BaseParser {
-  tagmap: HavenTagmap[];
+  tagmap: Map<string, HavenTagmap>;
   nodes: HavenFSNode[];
 
-  constructor(tagmap: HavenTagmap[], nodes: HavenFSNode[], entries: ILexerToken[][]) {
+  constructor(tagmap: Map<string, HavenTagmap>, nodes: HavenFSNode[], entries: ILexerToken[][]) {
     super(entries);
     this.nodes = nodes;
     this.tagmap = tagmap;
@@ -38,25 +38,24 @@ export class TagmapParser extends BaseParser {
       const idValue = idToken.value;
       const tagName = tagToken.value;
       const hexColor = colorToken?.value ?? "#ffffff";
-      const fileRef = line[refTokenIndex + 2];
+      const fileRefs = line.slice(refTokenIndex + 2).filter(token => token.type !== ELexerTokens.COMMA);
 
-      if (!fileRef) {
+      if (!fileRefs.length) {
         new HavenException('Missing file reference in TAG', position, ErrorCode.MISSING_TOKEN);
         continue;
       }
 
-      const fileRefValue = fileRef.value;
+      const fileRefsArray = fileRefs.map(tag => tag.value); // ["ref1", "ref2", "ref3"]
 
-      const tag = {
-        id: idValue,
+      const tagmap: HavenTagmap = {
         tag: {
           name: tagName,
           color: hexColor,
         },
-        fileRef: fileRefValue
-      }
+        fileRefs: fileRefsArray
+      };
 
-      this.tagmap.push(tag)
+      this.tagmap.set(idValue, tagmap)
     }
   }
 

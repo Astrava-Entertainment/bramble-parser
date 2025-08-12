@@ -3,10 +3,10 @@ import { BaseParser } from "./baseParser";
 import { HavenException } from "../errors";
 
 export class LibrarieParser extends BaseParser {
-  libraries: Map<HavenLibrarie, string[]>;
+  libraries: Map<string, HavenLibrary>;
   nodes: HavenFSNode[];
 
-  constructor(libraries: Map<HavenLibrarie, string[]>, nodes: HavenFSNode[], entries: ILexerToken[][]) {
+  constructor(libraries: Map<string, HavenLibrary>, nodes: HavenFSNode[], entries: ILexerToken[][]) {
     super(entries);
     this.nodes = nodes;
     this.libraries = libraries;
@@ -44,14 +44,13 @@ export class LibrarieParser extends BaseParser {
       const libId = idToken.value;
       const libName = libNameToken.value;
 
-      const lib: HavenLibrarie = {
-        id: libId,
+      const tagsIdArray = tagsId.map(tag => tag.value); // ["tag1", "tag2", "tag3"]
+      const lib: HavenLibrary = {
         name: libName,
+        tagsId: tagsIdArray
       };
 
-      const tagIds = tagsId.map(tag => tag.value);
-
-      this.libraries.set(lib, tagIds)
+      this.libraries.set(libId, lib)
     }
   }
 

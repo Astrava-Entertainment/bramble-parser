@@ -30,7 +30,8 @@ async function main() {
         // parser.debugLibraries();
         // parser.debugTagmap();
         // parser.debugFS();
-        console.log(parser.getLibraries());
+        // console.log(parser.getLibraries());
+        // console.log(parser.getTagmap());
 
 
         const errors = errorManager.getAll();

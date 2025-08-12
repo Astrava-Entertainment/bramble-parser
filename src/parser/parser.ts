@@ -10,16 +10,16 @@ import { TagmapParser } from './tagmapParser';
 export class BrambleFSParser {
   private chunkMap: ChunkMap[];
   private nodes: HavenFSNode[];
-  private libraries: Map<HavenLibrarie, string[]>;
-  private tagmap: HavenTagmap[];
+  private libraries: Map<string, HavenLibrary>;
+  private tagmap: Map<string, HavenTagmap>;
   private references: HavenReference[];
   private history: HavenHistoryTree[];
 
   constructor(chunkMap: ChunkMap[]) {
     this.chunkMap = chunkMap;
     this.nodes = [];
-    this.libraries = new Map<HavenLibrarie, string[]>();
-    this.tagmap = [];
+    this.libraries = new Map<string, HavenLibrary>();
+    this.tagmap = new Map<string, HavenTagmap>();
     this.references = [];
     this.history = [];
   }
